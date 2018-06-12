@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>SortXXL Demo</title>
+        <link rel="stylesheet" href="demo.css"media="screen">
+        
+		
+        <script type="text/javascript" src="https://raw.github.com/DmitryBaranovskiy/raphael/master/raphael-min.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="bucket.js"></script> 
+        <script type="text/javascript" src="pie.js"></script>
+		<script type="text/javascript" src="popup.js"></script>
+		<script type="text/javascript" src="analytics.js"></script>
+		<link rel="stylesheet" href="main.css" type="text/css" title='main' media="screen" />
+		<link rel="stylesheet" href="page.css" type="text/css" title='main' media="screen" />
+		<script type="text/javascript" src="jquery.idTabs.min.js"></script>
+		<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+		<script>
+    $(function() {
+        $( "#tabs" ).tabs();
+    });
+    </script>
+		
+		<script>
+		
+		 //$("#visible").invisible();
+		window.continue = 1;
+		 
+		 $(document).ready(function() {
+		
+			startAnimation();
+		
+			startExecution();
+
+	
+		});
+		
+		
+		
+		</script>
+		
+        <style media="screen">
+
+        
+        ol {
+        list-style-type: none;
+        }
+        
+        ol li {
+        position: relative;
+        font: bold italic 45px/1.5 Helvetica, Verdana, sans-serif;
+        margin-bottom: 20px;
+        }
+        
+        li p {
+        font: 20px/1.5 Helvetica, sans-serif;
+        padding-left: 40px;
+        padding-top: 18px;
+        padding-right: 20px;
+        color: #555;
+        }
+        
+
+        
+        span {
+			position: absolute;
+        }
+
+        
+       
+         div.small-box {
+			  //width:200px;
+			  //height:200px;
+			  z-index:10;
+			  //position:absolute;
+
+			  //border:1px solid black;
+			  //overflow:scroll;
+			  margin: 0px 0px 0px 0px;
+		  }
+         #canvas_container {  
+                //position:absolute;
+                //border: 1px solid #aaa;  
+                heigth: 400px; 
+                //left : 0px;
+                //right : 0px;
+                margin-left:13%;
+				margin-right:auto;
+				position: relative;
+				//width: 500px;
+				display:block;
+		}
+		#step2 {
+			
+				padding-top:350px;
+
+			  }
+		#sorted{
+			
+			//margin-top: 60px;
+			
+		}
+		#bench{
+			
+			//margin-top: 60px;
+			
+		}	  
+			  
+        </style>  
+		  
+        </style>
+    </head>
+    
+    
+    <body>
+		
+		<div id="titleD">
+		<h1>SORTXXL</h1>
+		</div>
+		<span id="canvas_container" >
+		</span>
+		<div id="home">
+		<div class="usual">
+		<ul class="idTabs">
+			<li ><a href="#Steps">Execution</a></li>
+			<li ><a href="#exec">Execution info</a></li>
+			<li ><a href="#exec_info">GPU info</a></li>
+			<li ><a href="#sortedx">Sorted Numbers</a></li>
+			<li ><a href="#bench">Benchmark</a></li>
+			<li ><a href="#about">About</a></li>
+		</ul>
+			<div id="Steps">
+				<div width ="600px" >
+				<div id="table"> </div>
+				<h2 >Steps of sort program</h2>
+				  <ol >
+					<li><span><font color="ff0d0d">1.</font></span>
+					<p id="scat">
+					Scattering
+					</p>
+						 </li>
+					<li><span><font color="ffa31b">2.</font></span><p id="histo">Histogram Generation</p></li>
+					<li><span><font color="d0ff17">3.</font></span><p id="globol">Global Scattering</p></li>
+					<li><span><font color="4eff23">4.</font></span><p id="sort">Global Bucket Sort</p></li>
+
+				  </ol>
+				  
+				  <div id="gholder">
+				  <div id="holder"></div>
+				  <p id="graph_sub">Steps execution time</p>
+				  </div>
+				</div>
+			</div>
+			
+			<div id="sortedx">
+				<div id="sorted">
+				
+				</div>
+			</div>
+			
+				<div id ="bench">
+					<h2 >Benchmark - Execution times</h2>
+					
+					<div id="holder2"></div>
+			
+					<div id="infob"></div>
+			
+			</div>
+			
+			
+			<div id ="exec">
+				
+			</div>
+			
+			<div id ="exec_info">
+				
+			</div>
+			
+			<div id="about" >
+				
+				<h3>SortXXL developed by:</h3>
+				<br>
+					<p>Valter Costa    2120908@my.ipleiria.pt</p>
+					<p>João Órfão    2120904@my.ipleiria.pt</p>
+					<p>João Sousa    2120903@my.ipleiria.pt</p>
+					<br>
+					<h4>High Performance Computing - Master of Computer Engineering, Mobile Computing </h4>
+					<h4>School of Technology and Management, Polytechnic Institute of Leiria</h4>
+			
+        </div>
+			
+		</div>	
+        </div>
+		        
+        
+		<script type="text/javascript">
+		$(function(){
+        $("code.color").removeClass("color").addClass("html")
+        .each(function(){
+		$(this).text( "&lt;a " + $(this).text() + "&gt;" ).chili()
+		t = $(this).html();
+		$(this).html(t.substr(37,t.length-80).replace(/&nbsp;/,""))
+        });
+        $("#mainTabs").idTabs();
+        $("#donate .donate").click(function(){ $("#donate form").submit(); return false; });
+		});
+		</script>
+		
+		
+		<script type="text/javascript" src="/s/g.js"></script>
+
+		
+		
+		
+		
+        
+        
+       
+        
+      
+        
+        
+
+        
+    </body>
+</html>

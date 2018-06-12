@@ -1,0 +1,19 @@
+# cmdline.ggo
+
+package "SORTXXL"
+purpose "Parallel number sorter"
+version "1.0"
+
+# Options
+option "benchmark" 		b 	"Benchmark mode - number of times to run"	int				optional	default="0"	
+option "demo"			d 	"Visual demo mode"							flag 			off
+option "gpu"			g 	"Show GPU Information"						flag 			off
+option "input" 			i 	"Input file"								string			optional
+option "min"	 		m 	"Minimum number"							int    			optional
+option "max"			M 	"Maximum number"							int 			optional
+option "output"			o 	"Output file"								string      	optional
+option "random"			r 	"Generate R random numbers"					long			optional
+option "about"			a 	"About"										flag       		off
+option "verbose"		v 	"Show log information"						flag       		off
+	
+
